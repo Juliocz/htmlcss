@@ -1,0 +1,140 @@
+
+/*ESTRUCUTRA BASICA PAGINA WEB*/
+.all{
+    background-color: rgba(255, 255, 255, 0);/*aqui no es encesario fondo ni padding, esto estara estatico con el tamaño del dispositivo*/
+    height: 100vh;
+    font-family: sans-serif;
+
+    /*esto es para tener el tamaño total primeramente*/
+}
+.contenedor{/*este contenedor iniciara con el tamaño del dispositivo pero sera agrandable*/
+    padding: 5px;
+ min-height: 100%;/*el contenedor que tendra todo, inicia con un tamaño minimo de 100%*/
+ background-color: rgb(56, 19, 95);
+ display: grid;
+ grid-template-columns: 1fr;
+ grid-template-rows: auto 1fr auto;/*auto espacio necesario, el otro una fraccion se ocupa todo espacio*/
+ grid-gap: 10px;
+}
+.cabezera{
+    
+    background-color: rgba(76, 117, 230, 0.384); 
+    display: grid;
+    grid-template-columns: 1fr 4fr 1fr;
+    grid-gap: 10px;
+    padding: 5px;
+}
+.bodycontent{
+    background-color: rgb(58, 15, 39);
+    display: grid;
+    grid-gap: 10px;
+    padding: 5px;
+    grid-template-columns: 5fr 1fr;
+    /*overflow: hidden;*//*evita que algun elemento desborde*/
+}
+.nav{
+    color: #fff;
+    background-color: rgb(104, 23, 67);
+    padding: 5px; 
+}
+.contenido{
+    background-color: rgb(141, 12, 83);
+    color:#fff;
+    padding: 5px;
+}
+.contenido:hover{
+    /*background-color: rgb(165, 71, 92);*/
+    /*opacity: 0;*/
+   /* height: 120%;
+    z-index:0;*//*prioridad de visualizacion, los que tienen mayor valor, se ponen encima de los de menor valor*/
+   /* transform-origin: top;
+    transition:transform 0.9s ease-in-out;*//*la transicion se pone solo las propiedades pero sin el valor, las propiedades que seran afectadas, timepo*/
+    transition:all 0.5s ease-in-out;/*la transicion se pone solo las propiedades pero sin el valor, las propiedades que seran afectadas, timepo*/
+
+    /*
+transform: scaleY(0);*/
+}
+.footer{
+    background-color: rgb(14, 118, 160);
+    
+}
+/*botones*/
+
+.myboton{
+    background-color: rgba(197, 0, 0, 0.938);
+    border-radius: 5px;
+    margin: 5px;
+    font-size: 1em;
+    /*background-image: linear-gradient(to top, rgb(87, 10, 10), rgb(197, 0, 0),rgb(114, 12, 12));*/
+    color: white;
+    /*border-width: 1px;
+  border-color: rgb(235, 219, 219);*/
+  border:none;
+    cursor:pointer;
+}
+.myboton:hover{
+    background-color: rgb(253, 106, 61);
+    box-shadow: 0px 0px 3px 3px rgba(255, 70, 70, 0.411);
+}
+/*menus*/
+.item_menu_horizontal{
+ /*border-radius: 5px;*/
+ padding: 5px;
+ position: relative;
+}
+.item_menu_horizontal:hover{
+    /*border-radius: 5px;*/
+    background-color: rgba(197, 0, 0, 0.411);
+ 
+        /*box-shadow: 0 0 0px 2px rgba(248, 116, 116, 0.815); sombra color, 3er parametro blur, 4to tamaño*/
+   }
+/*lista vertical*/
+.list_vertical{
+    left:0;/*ajusta bien alineado*/
+    top:100%;/*para que se muestre justo debajo*/
+    min-width: 100%;
+    align-self: center;
+    position: absolute;/*posicion absoluta al item menu horizotal*/
+    opacity: 0;/*estara oculto*/
+    transform: scaleY(0.0);
+    display: grid;
+    grid-template-columns: 1fr;
+    background-color: rgba(54, 54, 50, 0.411);
+}
+/*cuando se toque el menu que tiene la lista vertical*/
+.item_menu_horizontal:hover .list_vertical{
+    opacity: 1;
+    z-index: 5;
+    transform-origin: top;/*esto cambiara instantaneamente*/
+    transform: scaleY(1);
+    transition:transform 0.2s ease-in-out;/*la transicion solo dara tiempo al tamaño*/
+
+}
+.item_vertical_black{
+    color:white;/*color de letra*/
+    background-color:rgba(41, 17, 41, 0.822);/*color fondo*/
+    padding: 10px;
+}
+.item_vertical_black:hover{
+    color:white;/*color de letra*/
+    background-color:rgba(99, 41, 99, 0.836);/*color fondo*/
+}
+.item:hover{
+    transition:all 0.2s ease-in-out;
+}
+.black{
+    color:white;/*color de letra*/
+    background-color:rgb(41, 17, 41);/*color fondo*/
+}
+
+
+/*media queries*/
+@media screen and (max-width:600px){
+    .bodycontent{
+        background-color: rgb(194, 16, 114);
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr auto;
+        /*overflow: hidden;*//*evita que algun elemento desborde*/
+    }
+}
